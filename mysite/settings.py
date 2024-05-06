@@ -81,11 +81,11 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'railway',
-        'USER': 'postgres',
-        'PASSWORD': 'sypgfJFpaIBPAmwbwJOANJHYxlSLioQc',
-        'HOST': 'roundhouse.proxy.rlwy.net',
-        'PORT': '10258',
+        'NAME': os.environ.get('PGDATABASE', 'railway'),
+        'USER': os.environ.get('PGUSER', 'postgres'),
+        'PASSWORD': os.environ.get('PGPASSWORD', 'sypgfJFpaIBPAmwbwJOANJHYxlSLioQc'),
+        'HOST': os.environ.get('PGHOST', 'roundhouse.proxy.rlwy.net'),
+        'PORT': os.environ.get('PGPORT', '10258'),
     }
 }
 POSTGRES_LOCALLY = False
